@@ -90,7 +90,6 @@ let collateral_details = [
     amount_value: '4345',
     description: 'VCBDF',
   },
-
   {
     collateral_type: 'Securities',
     collateral_sub_type: 'Bond',
@@ -124,6 +123,7 @@ let collateral_details = [
     used_for_other_loan: 'Y',
   },
 ];
+/**desired JSON */
 let total_collaterals = [
   {
     collaterals: [
@@ -185,7 +185,6 @@ let total_collaterals = [
     ],
     collateral_key: 'Equipment',
   },
-
   {
     collaterals: [
       {
@@ -227,7 +226,6 @@ let total_collaterals = [
 
     collateral_key: 'Other Assets',
   },
-
   {
     collaterals: [
       {
@@ -258,7 +256,6 @@ let total_collaterals = [
     ],
     collateral_key: 'Residential Real Estate',
   },
-
   {
     collaterals: [
       {
@@ -273,7 +270,6 @@ let total_collaterals = [
 
     collateral_key: 'Securities',
   },
-
   {
     collaterals: [
       {
@@ -295,25 +291,47 @@ let total_collaterals = [
     collateral_key: 'Vehicle',
   },
 ];
+let desiredDetails = collateral_details.map((e, i) =>
+  formatToDesiredDetails(e)
+);
+console.log('desiredDetails', desiredDetails);
+function formatToDesiredDetails(e) {
+  let res = {
+    collaterals: [
+      {
+        sub_type: '',
+        use_of_property: '',
+        age_of_property: '',
+        area_of_property: '',
+        date_of_purchase: '',
+        lien_position_offered: '',
+        amount_value: '',
+        outstanding_debt_on_property: '',
+        description: '',
+        property_address: {
+          address: '',
+          city: '',
+          state: '',
+          zip_code: '',
+        },
+        property_ownership: [
+          {
+            owner_name: '',
+            ownership: '',
+            collateral_owner_type: '',
+          },
+        ],
+        used_for_other_loan: '',
+      },
+    ],
 
-collateral_details.forEach((item) => {
-  const collateral = collateral_details.find(
-    (i) =>
-      i?.collateral_type?.toLowerCase() ===
-        item?.collateral_type?.toLowerCase() &&
-      i?.collateral_sub_type?.toLowerCase() ===
-        item?.collateral_sub_type?.toLowerCase()
-  );
-  const collateralAddress = collateral_details.find((i) => {});
-  let list_data = {};
-  console.log('collateral', collateral);
-  if (collateral) {
-    const obj = {
-      sub_type: item.collateral_sub_type
-        ? item.collateral_sub_type
-        : item.collateral_type,
-    };
-    Object.assign(list_data, obj);
+    collateral_key: '',
+  };
+  if (!e) return res;
+  for (let key in e) {
+    if (key == 'collateral_type') res.collaterals[0].collateral_key = e[key];
+    if (key == 'collateral_sub_type') res.collaterals[0].sub_type = e[key];
   }
-  console.log(list_data);
-});
+
+  return res;
+}
