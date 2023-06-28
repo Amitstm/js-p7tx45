@@ -119,6 +119,11 @@ let collateral_details = [
         ownership: '100',
         collateral_owner_type: 'Owner',
       },
+      {
+        owner_name: 'GGUU',
+        ownership: '100',
+        collateral_owner_type: 'Owner',
+      },
     ],
     used_for_other_loan: 'Y',
   },
@@ -327,11 +332,60 @@ function formatToDesiredDetails(e) {
 
     collateral_key: '',
   };
+  let res2 = {
+    collaterals: [
+      {
+        sub_type: '',
+        condition: '',
+        year: '',
+        make: '',
+        model: '',
+        variant: '',
+        series: '',
+        odometer_reading: '',
+        purchase_source: '',
+        amount_value: '',
+        description: '',
+      },
+    ],
+    collateral_key: '',
+  };
   if (!e) return res;
   for (let key in e) {
-    if (key == 'collateral_type') res.collaterals[0].collateral_key = e[key];
+    if (key == 'collateral_type') res.collateral_key = e[key];
     if (key == 'collateral_sub_type') res.collaterals[0].sub_type = e[key];
-  }
+    if (key == 'use_of_property') res.collaterals[0].use_of_property = e[key];
+    if (key == 'age_of_property') res.collaterals[0].age_of_property = e[key];
+    if (key == 'lien_position_offered')
+      res.collaterals[0].lien_position_offered = e[key];
+    if (key == 'amount_value') res.collaterals[0].amount_value = e[key];
+    if (key == 'outstanding_debt_on_property')
+      res.collaterals[0].outstanding_debt_on_property = e[key];
+    if (key == 'description') res.collaterals[0].description = e[key];
+    if (key == 'address') res.collaterals[0].property_address.address = e[key];
+    if (key == 'city') res.collaterals[0].property_address.city = e[key];
+    if (key == 'state') res.collaterals[0].property_address.state = e[key];
+    if (key == 'zip_code')
+      res.collaterals[0].property_address.zip_code = e[key];
+    if (key == 'property_ownership')
+      res.collaterals[0].property_ownership[0] = e[key];
+    if (key == 'used_for_other_loan')
+      res.collaterals[0].used_for_other_loan = e[key];
+    if (key == 'collateral_type') res2.collateral_key = e[key];
+    if (key == 'collateral_sub_type') res2.collaterals[0].sub_type = e[key];
+    if (key == 'condition') res2.collaterals[0].condition = e[key];
+    if (key == 'year') res2.collaterals[0].year = e[key];
+    if (key == 'make') res2.collaterals[0].make = e[key];
+    if (key == 'model') res2.collaterals[0].model = e[key];
+    if (key == 'variant') res2.collaterals[0].variant = e[key];
+    if (key == 'series') res2.collaterals[0].series = e[key];
+    if (key == 'odometer_reading')
+      res2.collaterals[0].odometer_reading = e[key];
 
+    if (key == 'purchase_source') res2.collaterals[0].purchase_source = e[key];
+    if (key == 'amount_value') res2.collaterals[0].amount_value = e[key];
+    if (key == 'description') res2.collaterals[0].description = e[key];
+  }
+  console.log('res', res);
   return res;
 }
