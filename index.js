@@ -124,13 +124,11 @@ let collateral_details = [
     used_for_other_loan: 'Y',
   },
 ];
-
 let total_collaterals = [
   {
     collaterals: [
       {
         sub_type: 'Lien on Land and Improvements',
-
         use_of_property: 'Owned',
         age_of_property: '23',
         area_of_property: '3323',
@@ -139,20 +137,16 @@ let total_collaterals = [
         amount_value: '3434',
         outstanding_debt_on_property: '4434',
         description: 'KJHJ HG GV HHJ',
-
         property_address: {
           address: '123 William Street',
           city: 'New York',
           state: 'NY',
           zip_code: '10038',
         },
-
         property_ownership: [
           {
             owner_name: 'ravi',
-
             ownership: '100',
-
             collateral_owner_type: '5f0834abfa01d26d9d72b051',
           },
         ],
@@ -162,12 +156,10 @@ let total_collaterals = [
 
     collateral_key: 'Residential Real Estate',
   },
-
   {
     collaterals: [
       {
         sub_type: 'Certificate of Deposit',
-
         held_by: 'new',
         amount_value: '6000',
         balance_on_date: '06-01-2023',
@@ -175,17 +167,13 @@ let total_collaterals = [
         remarks: 'jhjh',
       },
     ],
-
     collateral_key: 'Deposit Account',
   },
-
   {
     collaterals: [
       {
         sub_type: 'Agricultural (other)',
-
         condition: 'Demo(Display)',
-
         condition: 'Demo(Display)',
         year_of_manufacture: '2020',
         model_number: '32432nb4b3',
@@ -195,7 +183,6 @@ let total_collaterals = [
         description: 'jbej bjhj jhgf',
       },
     ],
-
     collateral_key: 'Equipment',
   },
 
@@ -212,7 +199,6 @@ let total_collaterals = [
 
     collateral_key: 'Letter of Credit',
   },
-
   {
     collaterals: [
       {
@@ -223,15 +209,12 @@ let total_collaterals = [
         policy_expiration_date: '06-21-2023',
       },
     ],
-
     collateral_key: 'Life Insurance',
   },
-
   {
     collaterals: [
       {
         sub_type: 'Electrical Equipment',
-
         condition: 'Demo(Display)',
         year_of_manufacture: '2020',
         model_number: '65655',
@@ -249,7 +232,6 @@ let total_collaterals = [
     collaterals: [
       {
         sub_type: 'Lien on Land and Improvements',
-
         use_of_property: 'Owned',
         age_of_property: '23',
         area_of_property: '3323',
@@ -258,14 +240,12 @@ let total_collaterals = [
         amount_value: '3434',
         outstanding_debt_on_property: '4434',
         description: 'KJHJ HG GV HHJ',
-
         property_address: {
           address: '123 William Street',
           city: 'New York',
           state: 'NY',
           zip_code: '10038',
         },
-
         property_ownership: [
           {
             owner_name: 'GGUU',
@@ -273,11 +253,9 @@ let total_collaterals = [
             collateral_owner_type: 'Owner',
           },
         ],
-
         used_for_other_loan: 'Y',
       },
     ],
-
     collateral_key: 'Residential Real Estate',
   },
 
