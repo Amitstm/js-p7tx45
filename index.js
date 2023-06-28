@@ -382,5 +382,15 @@ collateral_details.forEach((item) => {
       i?.collateral_sub_type?.toLowerCase() ===
         item?.collateral_sub_type?.toLowerCase()
   );
+  let list_data = {};
   console.log('collateral', collateral);
+  if (collateral) {
+    const obj = {
+      sub_type: item.collateral_sub_type
+        ? item.collateral_sub_type
+        : item.collateral_key,
+    };
+    Object.assign(list_data, obj);
+  }
+  console.log(list_data);
 });
