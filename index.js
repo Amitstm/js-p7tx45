@@ -8,22 +8,9 @@ let collateral_details = [
     account_number: '654454345',
     remarks: 'jhjh',
   },
+
   {
-    collateral_type: 'Vehicle',
-    collateral_sub_type: 'Rigid Truck',
-    condition: 'New',
-    year: '2022',
-    make: 'fff',
-    model: '3434',
-    variant: '4334',
-    series: '432343',
-    odometer_reading: '34324',
-    purchase_source: 'Other Dealer',
-    amount_value: '3432',
-    description: '3dgfdv',
-  },
-  {
-    collateral_key: 'Commercial Real Estate',
+    collateral_type: 'Commercial Real Estate',
     collateral_sub_type:
       'Leasehold Security Interest in Building Constructed on Lease Land',
     use_of_property: 'Owned',
@@ -126,6 +113,20 @@ let collateral_details = [
       },
     ],
     used_for_other_loan: 'Y',
+  },
+  {
+    collateral_type: 'Vehicle',
+    collateral_sub_type: 'Rigid Truck',
+    condition: 'New',
+    year: '2022',
+    make: 'fff',
+    model: '3434',
+    variant: '4334',
+    series: '432343',
+    odometer_reading: '34324',
+    purchase_source: 'Other Dealer',
+    amount_value: '3432',
+    description: '3dgfdv',
   },
 ];
 /**desired JSON */
@@ -296,6 +297,7 @@ let total_collaterals = [
     collateral_key: 'Vehicle',
   },
 ];
+/** 
 let desiredDetails = collateral_details.map((e, i) =>
   formatToDesiredDetails(e)
 );
@@ -329,7 +331,6 @@ function formatToDesiredDetails(e) {
         used_for_other_loan: '',
       },
     ],
-
     collateral_key: '',
   };
   let res2 = {
@@ -389,3 +390,34 @@ function formatToDesiredDetails(e) {
   console.log('res', res);
   return res;
 }
+let desiredOutput = {
+
+  collaters: [],
+
+};
+**/
+let desiredOutput = {
+  total_collaterals: [],
+};
+Object.entries(collateral_details).forEach(([key, value]) => {
+  let propertyAdd = {};
+  if (
+    value['collateral_type'] == 'Residential Real Estate' ||
+    value['collateral_type'] == 'Commercial Real Estate'
+  ) {
+    propertyAdd['address'] = collateral_details[key]['address'];
+    propertyAdd['state'] = collateral_details[key]['state'];
+    propertyAdd['city'] = collateral_details[key]['city'];
+    propertyAdd['zip_code'] = collateral_details[key]['zip_code'];
+    value['property_address'] = propertyAdd;
+  }
+  value['sub_type'] = collateral_details[key]['collateral_sub_type']
+    ? collateral_details[key]['collateral_sub_type']
+    : '';
+  desiredOutput.total_collaterals.push({
+    collateral_key: value['collateral_type'],
+    collaterals: [collateral_details[key]],
+  });
+});
+
+console.log('desiredOutput', desiredOutput);
